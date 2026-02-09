@@ -5,6 +5,17 @@ import { Star, ShoppingCart, PartyPopper, Heart, Briefcase, Sun, Dumbbell } from
 
 gsap.registerPlugin(ScrollTrigger)
 
+type Product = {
+  id: number
+  name: string
+  image: string
+  rating: number
+  reviews: number
+  price: number
+  originalPrice?: number
+  discount?: number
+  badge?: string | null
+}
 const occasions = [
   { id: 'party', name: 'Party Ready', icon: PartyPopper },
   { id: 'date', name: 'Date Ready', icon: Heart },
@@ -13,7 +24,7 @@ const occasions = [
   { id: 'gym', name: 'Gym Ready', icon: Dumbbell },
 ]
 
-const occasionProducts: Record<string, typeof products> = {
+const occasionProducts: Record<string, Product[]> = {
   party: [
     { id: 1, name: 'Eau De Toilette | Noir (100ml)', image: '/product-perfume-intense.jpg', rating: 4.58, reviews: 74, price: 1499, originalPrice: 2199, discount: 31, badge: 'Best Seller' },
     { id: 2, name: 'Party Starter Kit', image: '/product-perfume-blanc.jpg', rating: 4.6, reviews: 58, price: 899, originalPrice: 2598, discount: 65, badge: null },
